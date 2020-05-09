@@ -1,6 +1,6 @@
 #' Use fontAwesome icons in visNetwork \code{graph}
 #'
-#' Add \href{http://fortawesome.github.io/Font-Awesome/}{Font-Awesome} for styling
+#' Add \href{https://fontawesome.com}{Font-Awesome} for styling
 #' our \code{graph} with beautiful, professional icons.  Please note
 #' that you'll already have these icons if using Shiny.
 #' Can also use \link{addIonicons}   
@@ -14,8 +14,8 @@
 #' 
 #' # use fontAwesome icons using groups or nodes options 
 #' # font-awesome is not part of dependencies. use addFontAwesome() if needed.
-#' # https://fontawesome.com/v4.7.0/
-#' # Version in package (and compatible with vis.js) : 4.7.0
+#' # https://fontawesome.com
+#' # Version in package (and compatible with vis.js) : 5.13.0
 #' # cheatsheet available in package: 
 #' # system.file("fontAwesome/Font_Awesome_Cheatsheet.pdf", package = "visNetwork")
 #' 
@@ -24,12 +24,13 @@
 #' edges <- data.frame(from = c(1,2), to = c(2,3))
 #' 
 #' visNetwork(nodes, edges) %>%
-#'   visGroups(groupname = "A", shape = "icon", icon = list(code = "f0c0", size = 75)) %>%
-#'   visGroups(groupname = "B", shape = "icon", icon = list(code = "f007", color = "red")) %>%
+#'   visGroups(groupname = "A", shape = "icon", icon = list(code = "f0c0", face = "'Font Awesome 5 Free'", weight = "bold", size = 75)) %>%
+#'   visGroups(groupname = "B", shape = "icon", icon = list(code = "f007", face = "'Font Awesome 5 Free'", weight = "bold", color = "red")) %>%
 #'   addFontAwesome()
 #' 
 #' # definition in nodes
-#' nodes <- data.frame(id = 1:3, shape = "icon", icon.face = 'FontAwesome', 
+#' nodes <- data.frame(id = 1:3, shape = "icon", icon.face = "'Font Awesome 5 Free'", 
+#'    icon.weight = "bold",
 #'    icon.code = "f0c0")
 #' edges <- data.frame(from = c(1,2), to = c(1,3))
 #' 
@@ -50,9 +51,9 @@ addFontAwesome <- function(graph, name = "font-awesome"){
   
   font_dep <- htmltools::htmlDependency(
     name = name,
-    version = "4.7.0",
+    version = "5.13.0",
     src = c(file=system.file("htmlwidgets/lib/font-awesome", package="visNetwork")),
-    stylesheet = "css/font-awesome.min.css"
+    stylesheet = "css/fontawesome.min.css"
   )
   
   if(length(graph$dependencies) == 0){
